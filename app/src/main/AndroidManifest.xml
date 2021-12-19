@@ -10,7 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QrApp">
         <activity
+            android:name=".updateInfomation_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".homepage_Employee"
+            android:exported="true" />
+        <activity
+            android:name=".homePage"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".login_Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

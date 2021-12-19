@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".homePage"
+    android:background="@drawable/imgbackground"
+    >
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="142dp"
+            android:layout_height="87dp"
+            android:src="@drawable/logo"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            />
+        <ImageView
+            android:id="@+id/nameGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/name_group"
+            android:layout_below="@+id/logo"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="45dp"
+            />
+        <TextView
+            android:id="@+id/nameRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quản lý"
+            android:textSize="20dp"
+            android:layout_below="@+id/nameGroup"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_marginLeft="45dp"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/body"
+        android:layout_above="@+id/footer"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/button_ScanQR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Quét mã QR"
+            android:textAllCaps="false"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="60dp"
+            />
+        <Button
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/button_ScanQR"
+            android:id="@+id/button_updateInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Cập nhật thông tin"
+            android:textAllCaps="false"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="60dp"
+            />
+        <Button
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/button_updateInfo"
+            android:id="@+id/button_viewHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Xem lịch sử"
+            android:textAllCaps="false"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="60dp"
+            />
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/button_viewHistory"
+            android:id="@+id/button_updateInfoEmployee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Cập nhật tài khoản \nnhân viên"
+            android:textAllCaps="false"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="60dp"
+            />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rectangle_bottm"
+            />
+        <TextView
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tổng đài hỗ trợ"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:textSize="20dp"
+            />
+        <TextView
+            android:layout_marginRight="55dp"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1900 1234"
+            android:textColor="#1587D9"
+            android:layout_centerVertical="true"
+            android:textSize="20dp"
+            />
+
+    </RelativeLayout>
+</RelativeLayout>
