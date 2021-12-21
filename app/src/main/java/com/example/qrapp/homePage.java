@@ -51,12 +51,12 @@ public class homePage extends AppCompatActivity implements View.OnClickListener 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(result.getContents());
                 builder.setTitle("Ket Qua");
-                builder.setPositiveButton("Xac Nhan", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Quét Lại", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         scanCode();
                     }
-                }).setNegativeButton("Finish", new DialogInterface.OnClickListener() {
+                }).setNegativeButton("Xác Nhận", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         finish();
