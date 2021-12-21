@@ -1,13 +1,15 @@
 package com.example.qrapp;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-public class homePage extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class homePage extends AppCompatActivity implements View.OnClickListener {
     Button scanButton;
 
     @Override
@@ -22,9 +24,15 @@ public class homePage extends AppCompatActivity {
         scanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(homePage.this,scannerQRview.class);
+                startActivity(intent);
             }
         });
+
+    }
+
+    @Override
+    public void onClick(View view) {
 
     }
 }

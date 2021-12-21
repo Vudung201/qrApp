@@ -75,16 +75,16 @@
                 android:src="@drawable/notification"
                 >
             </ImageView>
+
             <TextView
                 android:id="@+id/content_noti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Xac nhan"
                 android:layout_centerHorizontal="true"
-                android:textSize="18dp"
-                android:textColor="@color/black"
                 android:layout_marginTop="15dp"
-                />
+                android:text="Xac nhan"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
             <Button
                 android:id="@+id/button_accept"
                 android:layout_width="78dp"
