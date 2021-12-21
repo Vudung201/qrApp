@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.qrapp">
 
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,19 +14,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QrApp">
         <activity
+            android:name=".scannerQRview"
+            android:exported="true" />
+        <activity
+            android:name=".acceptScanner"
+            android:exported="true" />
+        <activity
             android:name=".updateInfomation_Activity"
             android:exported="true" />
         <activity
             android:name=".homepage_Employee"
             android:exported="true" />
         <activity
-            android:name=".homePage"
+            android:name=".login_Activity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".login_Activity"
+            android:name=".homePage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
