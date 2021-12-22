@@ -74,6 +74,7 @@
                             finish();
                         }else if (res.equals("success0")){
                             Intent intent = new Intent(login_Activity.this, homepage_Employee.class);
+                            intent.putExtra("maNV",maNV);
                             startActivity(intent);
                             finish();
                         } else if (res.equals("failed")) {
