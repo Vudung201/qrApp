@@ -58,15 +58,25 @@
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if (response.equals("success1")) {
+                        String maNV,res;
+                        maNV = "";
+                        if (!response.equals("failed")){
+                            res = response.substring(0,8);
+                            maNV = response.substring(9);
+                        }else{
+                            res = "failed";
+                        }
+                        res.trim();
+                        if (res.equals("success1")) {
                             Intent intent = new Intent(login_Activity.this, homePage.class);
+                            intent.putExtra("maNV",maNV);
                             startActivity(intent);
                             finish();
-                        }else if (response.equals("success0")){
+                        }else if (res.equals("success0")){
                             Intent intent = new Intent(login_Activity.this, homepage_Employee.class);
                             startActivity(intent);
                             finish();
-                        } else if (response.equals("failed")) {
+                        } else if (res.equals("failed")) {
                             Toast.makeText(login_Activity.this, "Tài Khoản Hoặc Mật Khẩu Không Chính Xác", Toast.LENGTH_SHORT).show();
                         }
                     }
