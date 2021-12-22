@@ -58,8 +58,12 @@
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if (response.equals("success")) {
+                        if (response.equals("success1")) {
                             Intent intent = new Intent(login_Activity.this, homePage.class);
+                            startActivity(intent);
+                            finish();
+                        }else if (response.equals("success0")){
+                            Intent intent = new Intent(login_Activity.this, homepage_Employee.class);
                             startActivity(intent);
                             finish();
                         } else if (response.equals("failed")) {
