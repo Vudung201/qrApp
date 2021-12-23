@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class homepage_Employee extends AppCompatActivity implements View.OnClickListener {
-    Button scanButton;
+    Button scanButton,updateButton;
     private static final String URLcheckin = "http://192.168.0.103/loginQRcode/insert_checkin.php";
     private static final String URLcheckout = "http://192.168.0.103/loginQRcode/insert_checkout.php";
     @Override
@@ -36,8 +36,20 @@ public class homepage_Employee extends AppCompatActivity implements View.OnClick
         requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title
         getSupportActionBar().hide(); //hide the title bar
         setContentView(R.layout.activity_homepage_employee);
+        Intent intentget = getIntent();
+        String maNV = intentget.getStringExtra("maNV");
+        maNV.trim();
         scanButton = findViewById(R.id.button_ScanQR);
         scanButton.setOnClickListener(this);
+        updateButton = findViewById(R.id.button_updateInfo);
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(homepage_Employee.this,updateInfomation_Activity.class);
+                intent.putExtra("maNV",maNV);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

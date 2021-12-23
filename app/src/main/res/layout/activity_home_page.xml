@@ -59,20 +59,20 @@
             android:textColor="@color/white"
             android:layout_marginLeft="60dp"
             />
+
         <Button
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/button_ScanQR"
             android:id="@+id/button_updateInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/button_ScanQR"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/custom_button"
             android:fontFamily="@font/roboto_regular"
             android:text="Cập nhật thông tin"
             android:textAllCaps="false"
-            android:textSize="20dp"
             android:textColor="@color/white"
-            android:layout_marginLeft="60dp"
-            />
+            android:textSize="20dp" />
         <Button
             android:layout_marginTop="30dp"
             android:layout_below="@id/button_updateInfo"

@@ -49,6 +49,7 @@
             tenDangNhap = matKhau = "";
             account = findViewById(R.id.edditext_account);
             password = findViewById(R.id.edditext_password);
+
         }
 
         public void login(View view){
