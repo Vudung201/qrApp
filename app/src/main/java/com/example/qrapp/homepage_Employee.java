@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class homepage_Employee extends AppCompatActivity implements View.OnClickListener {
-    Button scanButton,updateButton;
+    Button scanButton,updateButton,logOut;
     private static final String URLcheckin = "http://192.168.0.103/loginQRcode/insert_checkin.php";
     private static final String URLcheckout = "http://192.168.0.103/loginQRcode/insert_checkout.php";
     @Override
@@ -48,6 +48,17 @@ public class homepage_Employee extends AppCompatActivity implements View.OnClick
                 Intent intent = new Intent(homepage_Employee.this,updateInfomation_Activity.class);
                 intent.putExtra("maNV",maNV);
                 startActivity(intent);
+            }
+        });
+
+        logOut = findViewById(R.id.button_logOut);
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(homepage_Employee.this, login_Activity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
     }

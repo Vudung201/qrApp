@@ -48,15 +48,14 @@
             android:layout_below="@+id/logo"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="35dp"
             android:background="@drawable/custom_savebutton"
             android:fontFamily="@font/roboto_regular"
+            android:onClick="onClick"
             android:text="Lưu"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="15dp"
-            android:onClick="onClick"
-            />
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/button_back"
@@ -192,6 +191,7 @@
                     android:fontFamily="@font/roboto_regular"
                     android:hint="Số điện thoại"
                     android:inputType="phone"
+                    android:maxLength="11"
                     android:paddingLeft="15dp" />
 
             </RelativeLayout>

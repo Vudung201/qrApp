@@ -1,7 +1,9 @@
 package com.example.qrapp;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.text.method.DigitsKeyListener;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -55,11 +57,13 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
                     intent.putExtra("maNV",maNV);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
+                    finish();
                 }else{
                     Intent intent = new Intent(updateInfomation_Activity.this, homepage_Employee.class);
                     intent.putExtra("maNV",maNV);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
+                    finish();
                 }
 
             }
@@ -132,55 +136,63 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
     }
 
     public void onClick(View view) {
+        name = findViewById(R.id.edditext_name);
+        emails = findViewById(R.id.edditext_email);
+        phone =findViewById(R.id.edditext_phone);
+        gender = findViewById(R.id.edditext_gender);
+        password =findViewById(R.id.edditext_password);
 
-        Intent intent = getIntent();
-        String maNV = intent.getStringExtra("maNV");
-        maNV.trim();
-        StringRequest request = new StringRequest(Request.Method.POST, URLupdate, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                if (response.equals("success")){
-                    Toast.makeText(getApplicationContext(),"Update Thành Công",Toast.LENGTH_SHORT).show();
-                    addDatatoEdittext();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> pr = new HashMap<String,String>();
-                name = findViewById(R.id.edditext_name);
-                emails = findViewById(R.id.edditext_email);
-                phone =findViewById(R.id.edditext_phone);
-                gender = findViewById(R.id.edditext_gender);
-                password =findViewById(R.id.edditext_password);
+        String tenNV = name.getText().toString();
+        String email = emails.getText().toString();
+        String soDienThoai = phone.getText().toString();
+        String gioiTinhSo;
+        String gioiTinh = gender.getText().toString();
+        if (gioiTinh.equals("Nam") || gioiTinh.equals("nam")){
+            gioiTinhSo = "1";
+        }else {
+            gioiTinhSo = "0";
+        }
 
-                String tenNV = name.getText().toString();
-                String email = emails.getText().toString();
-                String soDienThoai = phone.getText().toString();
-                String gioiTinhSo;
-                String gioiTinh = gender.getText().toString();
-                if (gioiTinh.equals("Nam") || gioiTinh.equals("nam")){
-                    gioiTinhSo = "1";
-                }else {
-                    gioiTinhSo = "0";
+        if (soDienThoai.length() < 10) {
+            Toast.makeText(getApplicationContext(), "SỐ ĐIỆN THOẠI chỉ nhận 10 hoặc 11 số", Toast.LENGTH_SHORT).show();
+        }else{
+            Intent intent = getIntent();
+            String maNV = intent.getStringExtra("maNV");
+            maNV.trim();
+            StringRequest request = new StringRequest(Request.Method.POST, URLupdate, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    if (response.equals("success")){
+                        Toast.makeText(getApplicationContext(),"Update Thành Công",Toast.LENGTH_SHORT).show();
+                        addDatatoEdittext();
+                    }
                 }
-                String matKhau = password.getText().toString();
-                pr.put("maNV",maNV);
-                pr.put("tenNV",tenNV);
-                pr.put("email",email);
-                pr.put("soDienThoai",soDienThoai);
-                pr.put("gioiTinh",gioiTinhSo);
-                pr.put("matKhau",matKhau);
-                return pr;
-            }
-        };
-        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        queue.add(request);
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+                }
+            }){
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> pr = new HashMap<String,String>();
+
+
+                    String matKhau = password.getText().toString();
+                    pr.put("maNV",maNV);
+                    pr.put("tenNV",tenNV);
+                    pr.put("email",email);
+                    pr.put("soDienThoai",soDienThoai);
+                    pr.put("gioiTinh",gioiTinhSo);
+                    pr.put("matKhau",matKhau);
+                    return pr;
+                }
+            };
+            RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+            queue.add(request);
+
+
+        }
 
 
     }

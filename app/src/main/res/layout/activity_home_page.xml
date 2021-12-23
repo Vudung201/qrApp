@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="220dp">
 
         <ImageView
             android:id="@+id/logo"
@@ -47,18 +47,18 @@
         android:layout_below="@id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/button_ScanQR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
             android:background="@drawable/custom_button"
             android:fontFamily="@font/roboto_regular"
             android:text="Quét mã QR"
             android:textAllCaps="false"
-            android:textSize="20dp"
             android:textColor="@color/white"
-            android:layout_marginLeft="60dp"
-            />
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/button_updateInfo"
@@ -89,19 +89,32 @@
             />
 
         <Button
-            android:layout_marginTop="30dp"
-            android:layout_below="@id/button_viewHistory"
             android:id="@+id/button_updateInfoEmployee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/button_viewHistory"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/custom_button"
             android:fontFamily="@font/roboto_regular"
             android:text="Cập nhật tài khoản \nnhân viên"
             android:textAllCaps="false"
-            android:textSize="20dp"
             android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/button_logOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_updateInfoEmployee"
             android:layout_marginLeft="60dp"
-            />
+            android:layout_marginTop="30dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Đăng Xuất"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
 
     </RelativeLayout>
