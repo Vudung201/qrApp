@@ -69,6 +69,7 @@
             android:layout_centerHorizontal="true"
             android:hint="Tên Đăng Nhập"
             android:paddingLeft="15dp"
+            android:inputType="textPassword"
             />
 
         <Button
@@ -83,7 +84,9 @@
             android:text="Đăng nhập"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:onClick="login"
+            />
 
     </RelativeLayout>
     <RelativeLayout
