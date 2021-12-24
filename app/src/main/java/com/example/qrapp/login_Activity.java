@@ -99,7 +99,7 @@
                 RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
                 requestQueue.add(stringRequest);
             }else{
-                Toast.makeText(login_Activity.this,"Khong the rong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(login_Activity.this,"Vui Lòng Nhập Đầy Đủ Các Trường", Toast.LENGTH_SHORT).show();
             }
 
         }
