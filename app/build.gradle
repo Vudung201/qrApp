@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.qrapp"
-        minSdk 27
+        minSdk 26
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -37,4 +37,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.android.volley:volley:1.1.1'
+    // add library
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

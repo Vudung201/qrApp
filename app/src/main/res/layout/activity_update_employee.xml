@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".updateInfomation_Activity"
+    android:background="@drawable/background_second"
+    >
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="170dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="142dp"
+            android:layout_height="87dp"
+            android:src="@drawable/logo"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            />
+        <ImageView
+            android:id="@+id/nameGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/name_group"
+            android:layout_toRightOf="@+id/logo"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="15dp"
+            />
+        <TextView
+            android:id="@+id/nameRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quản lý"
+            android:textSize="20dp"
+            android:layout_below="@+id/nameGroup"
+            android:layout_toRightOf="@+id/logo"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_marginLeft="15dp"
+            />
+
+        <Button
+            android:id="@+id/button_saveInfo"
+            android:layout_width="78dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/logo"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/custom_savebutton"
+            android:fontFamily="@font/roboto_regular"
+            android:onClick="onClick"
+            android:text="Lưu"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="78dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/logo"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/custom_backbuttno"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Quay lại"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        >
+        <RelativeLayout
+            android:paddingLeft="25dp"
+            android:id="@+id/body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <RelativeLayout
+                android:id="@+id/layout_manv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/text_manv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mã Nhân Viên"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/edditext_manv"
+                    android:layout_width="304dp"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/text_manv"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/custom_edittext"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Mã nhân viên"
+                    android:paddingLeft="15dp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layout_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@+id/layout_manv"
+                >
+
+                <TextView
+                    android:id="@+id/text_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tên Đăng Nhập"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/edditext_account"
+                    android:layout_width="304dp"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/text_account"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/custom_edittext"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Tên Đăng Nhập"
+                    android:paddingLeft="15dp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginBottom="10dp"
+                android:id="@+id/layout_name"
+                android:layout_below="@+id/layout_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tên Nhân Viên"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/edditext_name"
+                    android:layout_width="304dp"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/text_name"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/custom_edittext"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Họ tên"
+                    android:paddingLeft="15dp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/layout_name"
+                android:id="@+id/layout_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/edditext_email"
+                    android:layout_width="304dp"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/text_email"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/custom_edittext"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Email"
+                    android:paddingLeft="15dp" />
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginBottom="10dp"
+                android:layout_below="@+id/layout_email"
+                android:id="@+id/layout_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số điện thoại"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/edditext_phone"
+                    android:layout_width="304dp"
+                    android:layout_height="45dp"
+                    android:layout_below="@+id/text_phone"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/custom_edittext"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Số điện thoại"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:paddingLeft="15dp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/layout_phone"
+                android:id="@+id/layout_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giới tính"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/edditext_gender"
+                    android:layout_width="304dp"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/text_gender"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/custom_edittext"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Giới tính"
+                    android:paddingLeft="15dp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/layout_gender"
+                android:id="@+id/layout_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mật khẩu"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/edditext_password"
+                    android:layout_width="304dp"
+                    android:layout_height="45dp"
+                    android:layout_below="@+id/text_password"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/custom_edittext"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Mật khẩu"
+                    android:paddingLeft="15dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_below="@+id/layout_password"
+                android:id="@+id/layout_repassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_repassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nhập lại mật khẩu"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/edditext_rePassword"
+                    android:layout_width="304dp"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/text_repassword"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/custom_edittext"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Nhập lại mật khẩu"
+                    android:paddingLeft="15dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_below="@+id/layout_repassword"
+                android:id="@+id/layout_maquyen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_maquyen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mã Quyền"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/edditext_maquyen"
+                    android:layout_width="304dp"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/text_maquyen"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/custom_edittext"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Nhập Mã quyền"
+                    android:paddingLeft="15dp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

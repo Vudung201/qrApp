@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class homePage extends AppCompatActivity implements View.OnClickListener {
-    Button scanButton,updateButton,logOut;
+    Button scanButton,updateButton,logOut, buttonEmployee, button_viewHistory_Out, button_viewHistory;
     private static final String URLcheckin = "http://192.168.0.103/loginQRcode/insert_checkin.php";
     private static final String URLcheckout = "http://192.168.0.103/loginQRcode/insert_checkout.php";
     @Override
@@ -60,6 +60,32 @@ public class homePage extends AppCompatActivity implements View.OnClickListener 
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
+            }
+        });
+        buttonEmployee = findViewById(R.id.button_updateInfoEmployee);
+        buttonEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent( homePage.this, EmployeeManagerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button_viewHistory_Out = findViewById(R.id.button_viewHistory_Out);
+        button_viewHistory_Out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(homePage.this, HistoryCheckoutActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button_viewHistory = findViewById(R.id.button_viewHistory);
+        button_viewHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(homePage.this, HistoryCheckinActivity.class);
+                startActivity(intent);
             }
         });
 

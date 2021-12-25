@@ -3,6 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/drawable-v24/backgound_tiemkiem.xml" value="0.23055555555555557" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/drawable-v24/border_add.xml" value="0.23055555555555557" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/drawable/back_ground_edit.xml" value="0.14583333333333334" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/drawable/rectangle_bottm.xml" value="0.20208333333333334" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_accept_scanner.xml" value="0.24444444444444444" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_add_employee.xml" value="0.264" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_employee_manager.xml" value="0.23692307692307693" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_history_check.xml" value="0.21666666666666667" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_history_checkin.xml" value="0.16" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_history_checkout.xml" value="0.2271794871794872" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_history_employee_checkout.xml" value="0.1828125" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_home_page.xml" value="0.152" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_homepage_employee.xml" value="0.24444444444444444" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_login.xml" value="0.13425925925925927" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_main.xml" value="0.24444444444444444" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_scanner_qrview.xml" value="0.24444444444444444" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_update_employee.xml" value="0.23703703703703705" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/activity_update_infomation.xml" value="0.24444444444444444" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/border_add.xml" value="0.24444444444444444" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/item_listview.xml" value="0.24444444444444444" />
+        <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/item_listview_history.xml" value="0.2271794871794872" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/drawable/custom_backbuttno.xml" value="0.29791666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/drawable/custom_button.xml" value="0.29791666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/drawable/custom_edittext.xml" value="0.29791666666666666" />

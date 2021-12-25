@@ -7,38 +7,38 @@
     tools:context=".homepage_Employee"
     android:background="@drawable/imgbackground"
     >
+
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="250dp">
 
         <ImageView
             android:id="@+id/logo"
             android:layout_width="142dp"
             android:layout_height="87dp"
-            android:src="@drawable/logo"
-            android:layout_marginTop="30dp"
             android:layout_marginLeft="15dp"
-            />
+            android:layout_marginTop="30dp"
+            android:src="@drawable/logo" />
+
         <ImageView
             android:id="@+id/nameGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/name_group"
             android:layout_below="@+id/logo"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="45dp"
-            />
+            android:layout_marginTop="15dp"
+            android:src="@drawable/name_group" />
+
         <TextView
             android:id="@+id/nameRole"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nhân viên"
-            android:textSize="20dp"
             android:layout_below="@+id/nameGroup"
-            android:fontFamily="@font/roboto_regular"
             android:layout_marginLeft="45dp"
-            />
+            android:fontFamily="@font/roboto_regular"
+            android:text="Nhân viên"
+            android:textSize="20dp" />
 
     </RelativeLayout>
 
@@ -76,7 +76,7 @@
             android:textSize="20dp" />
 
         <Button
-            android:id="@+id/button_viewHistory"
+            android:id="@+id/button_viewHistory_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/button_updateInfo"
@@ -84,15 +84,30 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/custom_button"
             android:fontFamily="@font/roboto_regular"
-            android:text="Xem lịch sử"
+            android:text="Xem lịch sử ra"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/button_viewHistory_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_viewHistory_out"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Xem lịch sử vào"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/button_logOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/button_viewHistory"
+            android:layout_below="@id/button_viewHistory_in"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/custom_button"
