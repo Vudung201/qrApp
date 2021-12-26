@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
-            android:text="Lịch sử ra vào của tất cả nhân viên"
+            android:text="Lịch sử ra của tất cả nhân viên"
             android:textColor="#6D0330"
             android:textStyle="bold" />
 

@@ -66,7 +66,7 @@ public class homepage_Employee extends AppCompatActivity implements View.OnClick
         button_viewHistory_out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(homepage_Employee.this, HistoryEmployee_checkout_Adapter.class);
+                Intent intent = new Intent(homepage_Employee.this, HistoryEmployeeCheckoutActivity.class);
                 intent.putExtra("maNV",maNV);
                 startActivity(intent);
             }
@@ -75,7 +75,7 @@ public class homepage_Employee extends AppCompatActivity implements View.OnClick
         button_viewHistory_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(homepage_Employee.this, HistoryEmployee_checkin_Adapter.class);
+                Intent intent = new Intent(homepage_Employee.this, HistoryEmployeeCheckinActivity.class);
                 intent.putExtra("maNV",maNV);
                 startActivity(intent);
             }

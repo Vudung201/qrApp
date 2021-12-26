@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HistoryCheckinActivity"
+    tools:context=".HistoryEmployeeCheckinActivity"
     android:background="@drawable/background_second"
     android:orientation="vertical">
     <RelativeLayout
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
-            android:text="Lịch sử ra vào của nhân viên"
+            android:text="Lịch sử vào của nhân viên"
             android:textColor="#6D0330"
             android:textStyle="bold" />
 
