@@ -4,17 +4,21 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class History_CheckIn_Adapter extends RecyclerView.Adapter<History_CheckIn_Adapter.UserViewHolder>{
+public class History_CheckIn_Adapter extends RecyclerView.Adapter<History_CheckIn_Adapter.UserViewHolder> implements Filterable {
     private Context context;
     private List<History> historyList;
+    private List<History> historyListOld;
 
     public History_CheckIn_Adapter(Context context) {
         this.context = context;
@@ -22,6 +26,7 @@ public class History_CheckIn_Adapter extends RecyclerView.Adapter<History_CheckI
 
     public void setData (List<History> list){
         this.historyList = list;
+        this.historyListOld = list;
         notifyDataSetChanged(); //load Bind du lieu vao UserAdapter
     }
 
@@ -39,7 +44,7 @@ public class History_CheckIn_Adapter extends RecyclerView.Adapter<History_CheckI
             return;
         String content ="Đã vào lúc: ";
         holder.tvName.setText(history.getName());
-        holder.tvContent.setText(content+ history.getTime() + " " + history.getDate());
+        holder.tvContent.setText(content+ history.getTime() + " Ngày: " + history.getDate());
     }
 
     @Override
@@ -47,6 +52,38 @@ public class History_CheckIn_Adapter extends RecyclerView.Adapter<History_CheckI
         if(historyList != null)
             return historyList.size();
         return 0;
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String strSearch = charSequence.toString();
+                if (strSearch.isEmpty()){
+                    historyList =  historyListOld;
+                }else {
+                    List<History> list = new ArrayList<>();
+                    for (History history: historyListOld){
+                        if (history.getDate().toLowerCase().contains(strSearch.toLowerCase())){
+                            list.add(history);
+                        }
+
+                    }
+                    historyList = list;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = historyList;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                historyList= (List<History>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public class UserViewHolder extends RecyclerView.ViewHolder{

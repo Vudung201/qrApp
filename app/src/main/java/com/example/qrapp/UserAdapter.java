@@ -122,8 +122,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                 }else {
                     List<User> list = new ArrayList<>();
                     for (User user: userListOld){
-                        if (user.getName().toLowerCase().contains(strSearch.toLowerCase()));
-                        list.add(user);
+                        if (user.getName().toLowerCase().contains(strSearch.toLowerCase())){
+                            list.add(user);
+                        }
+
                     }
                     userList = list;
                 }

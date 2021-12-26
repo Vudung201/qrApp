@@ -2,10 +2,14 @@ package com.example.qrapp;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -25,6 +29,7 @@ import java.util.List;
 public class HistoryCheckinActivity extends AppCompatActivity {
     private RecyclerView rcvHistory;
     private History_CheckIn_Adapter historyAdapter;
+    private SearchView searchView;
     List<History> arrayList;
     String url ="http://192.168.0.103/loginQRcode/getdata_history_checkin.php";
 
@@ -34,7 +39,6 @@ public class HistoryCheckinActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history_checkin);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
 
         rcvHistory = findViewById(R.id.rcv_history);
 
@@ -79,5 +83,26 @@ public class HistoryCheckinActivity extends AppCompatActivity {
                 }
         );
         requestQueue.add(jsonArrayRequest);
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                historyAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                historyAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        return true;
     }
 }

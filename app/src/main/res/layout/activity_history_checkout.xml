@@ -9,40 +9,6 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="130dp">
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="142dp"
-            android:layout_height="87dp"
-            android:src="@drawable/logo"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="15dp"
-            />
-        <ImageView
-            android:id="@+id/nameGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/name_group"
-            android:layout_toRightOf="@+id/logo"
-            android:layout_marginTop="35dp"
-            android:layout_marginLeft="15dp"
-            />
-        <TextView
-            android:id="@+id/nameRole"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quản lý"
-            android:textSize="20dp"
-            android:layout_below="@+id/nameGroup"
-            android:layout_toRightOf="@+id/logo"
-            android:fontFamily="@font/roboto_regular"
-            android:layout_marginLeft="15dp"
-            />
-    </RelativeLayout>
-    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
