@@ -35,7 +35,6 @@ public class HistoryEmployeeCheckoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history_employee_checkout);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
 
         rcvHistory = findViewById(R.id.rcv_history);
 

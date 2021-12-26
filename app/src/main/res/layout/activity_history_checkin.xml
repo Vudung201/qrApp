@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
+        <TextView
             android:id="@+id/eddit_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,6 +19,7 @@
             android:layout_marginTop="10dp"
             android:text="Lịch sử vào của tất cả nhân viên"
             android:textColor="#6D0330"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
     </RelativeLayout>

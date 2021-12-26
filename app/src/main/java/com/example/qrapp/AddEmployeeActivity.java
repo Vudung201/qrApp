@@ -109,7 +109,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
                         Toast.makeText(AddEmployeeActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(AddEmployeeActivity.this, EmployeeManagerActivity.class));
                     } else {
-                        Toast.makeText(AddEmployeeActivity.this, "Loi", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddEmployeeActivity.this, "Trùng Mã", Toast.LENGTH_SHORT).show();
                     }
 
                 }

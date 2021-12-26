@@ -18,6 +18,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:text="Lịch sử ra vào của"
+            android:textSize="25dp"
             android:textColor="#6D0330"
             android:textStyle="bold" />
 
