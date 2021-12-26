@@ -2,12 +2,16 @@ package com.example.qrapp;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DownloadManager;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -31,18 +35,18 @@ import java.util.List;
 import java.util.Map;
 
 public class EmployeeManagerActivity extends AppCompatActivity {
-    Button add_Emplyee, sreach_Emplyee;
+    Button add_Emplyee, sreach_Emplyee,back;
     private RecyclerView rcvUser;
     private UserAdapter userAdapter;
+    private SearchView searchView;
     List<User> arrayList;
-    String url ="http://10.0.2.2:81/loginQRcode/getdata_employee.php";
-    String url_delete ="http://10.0.2.2:81/loginQRcode/delete_employee.php";
+    String url ="http://192.168.0.103/loginQRcode/getdata_employee.php";
+    String url_delete ="http://192.168.0.103/loginQRcode/delete_employee.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_manager);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
 
         rcvUser = findViewById(R.id.rcv_user);
 
@@ -60,6 +64,13 @@ public class EmployeeManagerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(EmployeeManagerActivity.this, AddEmployeeActivity.class);
                 startActivity(intent);
+            }
+        });
+        back = findViewById(R.id.button_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }
@@ -128,4 +139,26 @@ public class EmployeeManagerActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                userAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                userAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        return true;
+    }
 }

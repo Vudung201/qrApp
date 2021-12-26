@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,11 +16,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder>{
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> implements Filterable {
     private EmployeeManagerActivity context;
     private List<User> userList;
+    private List<User> userListOld;
 
     public UserAdapter(EmployeeManagerActivity context) {
         this.context = context;
@@ -26,6 +31,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     public void setData (List<User> list){
         this.userList = list;
+        this.userListOld = list;
         notifyDataSetChanged(); //load Bind du lieu vao UserAdapter
     }
 
@@ -104,5 +110,34 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             imgDelete = itemView.findViewById(R.id.delete);
 
         }
+    }
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String strSearch = charSequence.toString();
+                if (strSearch.isEmpty()){
+                    userList =  userListOld;
+                }else {
+                    List<User> list = new ArrayList<>();
+                    for (User user: userListOld){
+                        if (user.getName().toLowerCase().contains(strSearch.toLowerCase()));
+                        list.add(user);
+                    }
+                    userList = list;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = userList;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                userList= (List<User>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 }

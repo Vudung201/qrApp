@@ -32,6 +32,8 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/drawable/notification.xml" value="0.29791666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/drawable/rectangle_bottm.xml" value="0.25708333333333333" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_accept_scanner.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_add_employee.xml" value="0.285" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_employee_manager.xml" value="0.285" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_home_page.xml" value="0.24416666666666667" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_homepage_employee.xml" value="0.24416666666666667" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
@@ -39,8 +41,11 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_scanner_qrview.xml" value="0.17125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_scanner_view.xml" value="0.24773662551440329" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_scanner_view2.xml" value="0.16166666666666665" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_update_employee.xml" value="0.285" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_update_infomation.xml" value="0.33" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/item_listview.xml" value="0.285" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/list_gender.xml" value="0.2975" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/menu/main_menu.xml" value="0.285" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/xml/network_security_config.xml" value="0.2975" />
       </map>
     </option>

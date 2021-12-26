@@ -7,44 +7,22 @@
     tools:context=".EmployeeManagerActivity"
     android:background="@drawable/background_second"
     android:orientation="vertical">
-
-    <RelativeLayout
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="130dp">
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="142dp"
-        android:layout_height="87dp"
-        android:src="@drawable/logo"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="15dp"
-        />
-    <ImageView
-        android:id="@+id/nameGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/name_group"
-        android:layout_toRightOf="@+id/logo"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="15dp"
-        />
-    <TextView
-        android:id="@+id/nameRole"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quản lý"
-        android:textSize="20dp"
-        android:layout_below="@+id/nameGroup"
-        android:layout_toRightOf="@+id/logo"
-        android:fontFamily="@font/roboto_regular"
-        android:layout_marginLeft="15dp"
-        />
-    </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="78dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/custom_backbuttno"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Quay lại"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/add_emplyee"
@@ -53,31 +31,9 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/border_add"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="20dp"
             android:text="Thêm mới" />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="20dp"
-            >
-
-            <EditText
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:hint="Tìm kiếm"
-                android:background="@drawable/backgound_tiemkiem"
-                android:paddingLeft="20dp"
-                />
-            <ImageButton
-                android:id="@+id/search_emplyee"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:background="@drawable/search"
-                />
-        </LinearLayout>
-
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -90,6 +46,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="5dp"
             android:layout_marginBottom="10dp"
+            android:paddingRight="5dp"
             android:scrollbars="none" />
     </RelativeLayout>
 </LinearLayout>

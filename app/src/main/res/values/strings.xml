@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">QrApp</string>
+    <string name="app_name">Tìm Kiếm</string>
+    <string name="action_search">Search</string>
 </resources>

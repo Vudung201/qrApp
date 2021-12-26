@@ -48,14 +48,15 @@
         android:layout_width="match_parent"
         android:layout_height="469dp"
         android:layout_below="@id/header"
-        android:layout_marginBottom="-43dp">
+        android:layout_marginBottom="43dp">
 
         <RelativeLayout
             android:id="@+id/body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/footer"
-            android:layout_below="@id/header">
+            android:layout_below="@id/header"
+            android:paddingBottom="10dp">
 
             <Button
                 android:id="@+id/button_ScanQR"
