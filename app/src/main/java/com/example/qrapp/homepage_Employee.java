@@ -26,8 +26,8 @@ import java.util.Map;
 
 public class homepage_Employee extends AppCompatActivity implements View.OnClickListener {
     Button scanButton,updateButton,logOut, button_viewHistory_out,button_viewHistory_in;
-    private static final String URLcheckin = "http://192.168.43.130:81/loginQRcode/insert_checkin.php";
-    private static final String URLcheckout = "http://192.168.43.130:81/loginQRcode/insert_checkout.php";
+    private static final String URLcheckin = "http://192.168.0.103/loginQRcode/insert_checkin.php";
+    private static final String URLcheckout = "http://192.168.0.103/loginQRcode/insert_checkout.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -24,10 +24,6 @@
         <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/border_add.xml" value="0.24444444444444444" />
         <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/item_listview.xml" value="0.24444444444444444" />
         <entry key="..\:/HK121/th LTDĐ/baitaplon/project/qrApp/app/src/main/res/layout/item_listview_history.xml" value="0.2271794871794872" />
-        <entry key="..\:/HK121/th LTDĐ/baitaplon/qrApp/app/src/main/res/layout/activity_employee_manager.xml" value="0.1" />
-        <entry key="..\:/HK121/th LTDĐ/baitaplon/qrApp/app/src/main/res/layout/activity_history_checkin.xml" value="0.1" />
-        <entry key="..\:/HK121/th LTDĐ/baitaplon/qrApp/app/src/main/res/layout/activity_history_checkout.xml" value="0.1" />
-        <entry key="..\:/HK121/th LTDĐ/baitaplon/qrApp/app/src/main/res/layout/activity_history_employee_checkin.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/drawable/custom_backbuttno.xml" value="0.29791666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/drawable/custom_button.xml" value="0.29791666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/drawable/custom_edittext.xml" value="0.29791666666666666" />
@@ -41,6 +37,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_history_checkin.xml" value="0.2975" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_history_checkout.xml" value="0.2975" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_history_employee_checkin.xml" value="0.2975" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_history_employee_checkout.xml" value="0.2975" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_home_page.xml" value="0.24416666666666667" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_homepage_employee.xml" value="0.24416666666666667" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/QrApp/app/src/main/res/layout/activity_login.xml" value="0.25" />

@@ -27,7 +27,7 @@ public class HistoryEmployeeCheckoutActivity extends AppCompatActivity {
     private RecyclerView rcvHistory;
     private HistoryAdapter historyAdapter;
     List<History> arrayList;
-    String url ="http://192.168.43.130:81/loginQRcode/getdata_history_checkOut.php";
+    String url ="http://192.168.0.103/loginQRcode/getdata_history_checkOut.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

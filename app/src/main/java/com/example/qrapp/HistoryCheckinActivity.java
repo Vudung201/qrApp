@@ -31,7 +31,7 @@ public class HistoryCheckinActivity extends AppCompatActivity {
     private History_CheckIn_Adapter historyAdapter;
     private SearchView searchView;
     List<History> arrayList;
-    String url ="http://192.168.43.130:81/loginQRcode/getdata_history_checkin.php";
+    String url ="http://192.168.0.103/loginQRcode/getdata_history_checkin.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

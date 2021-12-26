@@ -35,8 +35,8 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
     EditText account,name,emails,phone,gender,password, repassword;
     Button back,save;
     private static String maquyen,oldpassword;
-    private static final String URLupdate= "http://192.168.43.130:81/loginQRcode/update.php";
-    private static final String URLgetInfo= "http://192.168.43.130:81/loginQRcode/getInfomation.php";
+    private static final String URLupdate= "http://192.168.0.103/loginQRcode/update.php";
+    private static final String URLgetInfo= "http://192.168.0.103/loginQRcode/getInfomation.php";
     private static final String FULLNAME_PATTERN = "^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" +
             "ẸẺẼỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềếểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" +
             "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$";
