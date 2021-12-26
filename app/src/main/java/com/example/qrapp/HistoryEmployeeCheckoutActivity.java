@@ -27,7 +27,7 @@ public class HistoryEmployeeCheckoutActivity extends AppCompatActivity {
     private RecyclerView rcvHistory;
     private HistoryAdapter historyAdapter;
     List<History> arrayList;
-    String url ="http://192.168.0.103/loginQRcode/getInformation_Employee_out.php";
+    String url ="http://192.168.43.130:81/loginQRcode/getdata_history_checkOut.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class HistoryEmployeeCheckoutActivity extends AppCompatActivity {
         rcvHistory.setAdapter(historyAdapter);
 
         Intent intent = getIntent();
-        String maNV = intent.getStringExtra("maNV");
+        String maNV = String.valueOf(intent.getStringExtra("maNV"));
         GetData(url, maNV);
     }
     private void GetData(String url, String maNV) {
@@ -56,7 +56,6 @@ public class HistoryEmployeeCheckoutActivity extends AppCompatActivity {
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject object = response.getJSONObject(i);

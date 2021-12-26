@@ -36,7 +36,7 @@
     public class login_Activity extends AppCompatActivity {
         EditText account, password;
         String tenDangNhap, matKhau;
-        String URL = "http://192.168.0.103/loginQRcode/login.php";
+        String URL = "http://192.168.43.130:81/loginQRcode/login.php";
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {

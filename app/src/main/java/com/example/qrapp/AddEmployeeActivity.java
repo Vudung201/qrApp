@@ -33,7 +33,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     private static final String PASSWORD_PATTERN = "^(?=\\S+$)$";
-    String url = "http://192.168.0.103/loginQRcode/add_employee.php";
+    String url = "http://10.0.2.2:81/loginQRcode/add_employee.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

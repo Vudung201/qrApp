@@ -38,8 +38,8 @@ public class UpdateEmployeeActivity extends AppCompatActivity {
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     private static final String PASSWORD_PATTERN = "^(?=\\S+$)$";
-    String url = "http://192.168.0.103/loginQRcode/update_employee.php";
-    String URLgetInfo = "http://192.168.0.103/loginQRcode/getInfomation.php";
+    String url = "http://192.168.43.130:81/loginQRcode/update_employee.php";
+    String URLgetInfo = "http://192.168.43.130:81/loginQRcode/getInfomation.php";
     String maNV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -40,8 +40,8 @@ public class EmployeeManagerActivity extends AppCompatActivity {
     private UserAdapter userAdapter;
     private SearchView searchView;
     List<User> arrayList;
-    String url ="http://192.168.0.103/loginQRcode/getdata_employee.php";
-    String url_delete ="http://192.168.0.103/loginQRcode/delete_employee.php";
+    String url ="http://192.168.43.130:81/loginQRcode/getdata_employee.php";
+    String url_delete ="http://192.168.43.130:81/loginQRcode/delete_employee.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
