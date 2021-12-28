@@ -29,17 +29,6 @@
             android:layout_marginTop="35dp"
             android:layout_marginLeft="15dp"
             />
-        <TextView
-            android:id="@+id/nameRole"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quản lý"
-            android:textSize="20dp"
-            android:layout_below="@+id/nameGroup"
-            android:layout_toRightOf="@+id/logo"
-            android:fontFamily="@font/roboto_regular"
-            android:layout_marginLeft="15dp"
-            />
 
         <Button
             android:id="@+id/button_saveInfo"
@@ -51,7 +40,7 @@
             android:layout_marginRight="35dp"
             android:background="@drawable/custom_savebutton"
             android:fontFamily="@font/roboto_regular"
-            android:text="Lưu"
+            android:text="Đăng ký"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="15dp" />
