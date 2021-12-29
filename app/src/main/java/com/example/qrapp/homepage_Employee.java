@@ -1,4 +1,5 @@
 package com.example.qrapp;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +7,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -25,9 +28,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class homepage_Employee extends AppCompatActivity implements View.OnClickListener {
-    Button scanButton,updateButton,logOut, button_viewHistory_out,button_viewHistory_in;
-    private static final String URLcheckin = "http://192.168.0.103/loginQRcode/insert_checkin.php";
+    Button scanButton, updateButton, logOut, button_viewHistory_out;
     private static final String URLcheckout = "http://192.168.0.103/loginQRcode/insert_checkout.php";
+    private static final String URLgetCart = "http://192.168.0.103/loginQRcode/getCart.php";
+    static double tongTien;
+    static String nhanvien;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,16 +43,16 @@ public class homepage_Employee extends AppCompatActivity implements View.OnClick
         getSupportActionBar().hide(); //hide the title bar
         setContentView(R.layout.activity_homepage_employee);
         Intent intentget = getIntent();
-        String maNV = intentget.getStringExtra("maNV");
-        maNV.trim();
+        String maKH = intentget.getStringExtra("maKH");
+        maKH.trim();
         scanButton = findViewById(R.id.button_ScanQR);
         scanButton.setOnClickListener(this);
         updateButton = findViewById(R.id.button_updateInfo);
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(homepage_Employee.this,updateInfomation_Activity.class);
-                intent.putExtra("maNV",maNV);
+                Intent intent = new Intent(homepage_Employee.this, updateInfomation_Activity.class);
+                intent.putExtra("maKH", maKH);
                 startActivity(intent);
             }
         });
@@ -67,16 +73,7 @@ public class homepage_Employee extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(homepage_Employee.this, HistoryEmployeeCheckoutActivity.class);
-                intent.putExtra("maNV",maNV);
-                startActivity(intent);
-            }
-        });
-        button_viewHistory_in = findViewById(R.id.button_viewHistory_in);
-        button_viewHistory_in.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(homepage_Employee.this, HistoryEmployeeCheckinActivity.class);
-                intent.putExtra("maNV",maNV);
+                intent.putExtra("maKH", maKH);
                 startActivity(intent);
             }
         });
@@ -95,62 +92,63 @@ public class homepage_Employee extends AppCompatActivity implements View.OnClick
         intentIntegrator.setPrompt("Đang Quét");
         intentIntegrator.initiateScan();
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
-        if (result != null){
-            if (result.getContents() != null){
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage("Xác Nhận "+result.getContents()+" Công ty ?");
-                builder.setTitle("Kết Quả Quét");
-                builder.setPositiveButton("Quét Lại", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        scanCode();
-                    }
-                }).setNegativeButton("Xác Nhận", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (result.getContents().equals("checkin")){
-                            insertCheckin();
-                        }else if(result.getContents().equals("checkout")){
-                            insertCheckout();
-                        }
-                        dialogInterface.dismiss();
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-            else{
-                Toast.makeText(this,"no result", Toast.LENGTH_SHORT).show();
-            }
-        }else{
-            super.onActivityResult(requestCode,resultCode,data);
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        getCartSum(result.getContents(), result);
+        if (result == null) {
+            super.onActivityResult(requestCode, resultCode, data);
         }
+
     }
 
-    private void insertCheckin() {
-        Intent intent = getIntent();
-        String maNV = intent.getStringExtra("maNV");
-        maNV.trim();
-        StringRequest request = new StringRequest(Request.Method.POST, URLcheckin, new Response.Listener<String>() {
-            @Override
+    private void getCartSum(String nhanvien, IntentResult result1) {
+        StringRequest request = new StringRequest(Request.Method.POST, URLgetCart, new Response.Listener<String>() {
             public void onResponse(String response) {
-                if (response.equals("success")){
-                    Toast.makeText(getApplicationContext(),"CheckIn Thành Công",Toast.LENGTH_SHORT).show();
+                final IntentResult result = result1;
+                response.trim();
+                String res = response.substring(1, 7);
+                System.out.println();
+                if (res.compareToIgnoreCase("failed") != 0) {
+                    tongTien = Double.parseDouble(response);
+                    if (result != null) {
+                        if (result.getContents() != null) {
+                            System.out.println(response);
+                            AlertDialog.Builder builder = new AlertDialog.Builder(homepage_Employee.this);
+                            builder.setMessage("Nhân Viên tiếp xúc: " + result.getContents() + "\n\nTổng tiền: " + String.format("%,.0f", tongTien) + " VNĐ");
+                            builder.setTitle("Xác Nhận Thanh Toán Đơn Hàng ?");
+                            builder.setPositiveButton("Quét Lại", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    scanCode();
+                                }
+                            }).setNegativeButton("Xác Nhận", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    insertPayment(result.getContents(),tongTien);
+                                    dialogInterface.dismiss();
+                                }
+                            });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        } else {
+                            Toast.makeText(homepage_Employee.this, "no result", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                } else {
+                    Toast.makeText(homepage_Employee.this, "Quét thất bại", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> pr = new HashMap<String,String>();
-                pr.put("maNV",maNV);
+                Map<String, String> pr = new HashMap<String, String>();
+                pr.put("nhanvien", nhanvien);
                 return pr;
             }
         };
@@ -158,32 +156,35 @@ public class homepage_Employee extends AppCompatActivity implements View.OnClick
         queue.add(request);
     }
 
-
-    private void insertCheckout() {
+    private void insertPayment(String nhanviens, double tongtiens) {
         Intent intent = getIntent();
-        String maNV = intent.getStringExtra("maNV");
-        maNV.trim();
+        String maKH = intent.getStringExtra("maKH");
+        maKH.trim();
         StringRequest request = new StringRequest(Request.Method.POST, URLcheckout, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if (response.equals("success")){
-                    Toast.makeText(getApplicationContext(),"CheckOut Thành Công",Toast.LENGTH_SHORT).show();
+                if (response.equals("success")) {
+                    Toast.makeText(getApplicationContext(), "Thanh Toán Thành Công", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> pr = new HashMap<String,String>();
-                pr.put("maNV",maNV);
+                Map<String, String> pr = new HashMap<String, String>();
+                pr.put("maKH", maKH);
+                pr.put("nhanvien", nhanviens);
+                pr.put("tongtien", String.valueOf(tongtiens));
                 return pr;
             }
         };
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         queue.add(request);
     }
+
+
 }

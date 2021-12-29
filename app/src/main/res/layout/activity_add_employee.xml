@@ -77,28 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                >
-
-                <TextView
-                    android:id="@+id/text_manv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mã Nhân Viên"
-                    android:textColor="@color/black"
-                    android:textSize="17dp" />
-
-                <EditText
-                    android:id="@+id/edditext_manv"
-                    android:layout_width="304dp"
-                    android:layout_height="45dp"
-                    android:layout_below="@id/text_manv"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/custom_edittext"
-                    android:fontFamily="@font/roboto_regular"
-                    android:hint="Mã nhân viên"
-                    android:paddingLeft="15dp" />
-
-            </RelativeLayout>
+                />
             <RelativeLayout
                 android:id="@+id/layout_account"
                 android:layout_width="wrap_content"
@@ -138,7 +117,7 @@
                     android:id="@+id/text_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tên Nhân Viên"
+                    android:text="Tên Khách Hàng"
                     android:textColor="@color/black"
                     android:textSize="17dp" />
 
@@ -295,27 +274,7 @@
                 android:layout_below="@+id/layout_repassword"
                 android:id="@+id/layout_maquyen"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/text_maquyen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mã Quyền"
-                    android:textColor="@color/black"
-                    android:textSize="17dp" />
-
-                <EditText
-                    android:id="@+id/edditext_maquyen"
-                    android:layout_width="304dp"
-                    android:layout_height="45dp"
-                    android:layout_below="@id/text_maquyen"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/custom_edittext"
-                    android:fontFamily="@font/roboto_regular"
-                    android:hint="Nhập Mã quyền"
-                    android:paddingLeft="15dp" />
-            </RelativeLayout>
+                android:layout_height="wrap_content"/>
         </RelativeLayout>
     </ScrollView>
 

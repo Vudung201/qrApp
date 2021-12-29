@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
 public class updateInfomation_Activity extends AppCompatActivity implements View.OnClickListener {
     EditText account,name,emails,phone,gender,password, repassword;
     Button back,save;
-    private static String maquyen,oldpassword;
+    private static String oldpassword;
     private static final String URLupdate= "http://192.168.0.103/loginQRcode/update.php";
     private static final String URLgetInfo= "http://192.168.0.103/loginQRcode/getInfomation.php";
     private static final String FULLNAME_PATTERN = "^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" +
@@ -52,7 +52,7 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
         getSupportActionBar().hide(); //hide the title bar
         setContentView(R.layout.activity_update_infomation);
         Intent intentget = getIntent();
-        String maNV = intentget.getStringExtra("maNV");
+        String maKH = intentget.getStringExtra("maKH");
         addDatatoEdittext();
         save = findViewById(R.id.button_saveInfo);
         save.setOnClickListener(this);
@@ -61,20 +61,11 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (maquyen.equals("1")){
-                    Intent intent = new Intent(updateInfomation_Activity.this, homePage.class);
-                    intent.putExtra("maNV",maNV);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
-                }else{
                     Intent intent = new Intent(updateInfomation_Activity.this, homepage_Employee.class);
-                    intent.putExtra("maNV",maNV);
+                    intent.putExtra("maKH",maKH);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
-                }
-
             }
         });
 
@@ -82,8 +73,8 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
 
     private void addDatatoEdittext() {
         Intent intent = getIntent();
-        String maNV = intent.getStringExtra("maNV");
-        maNV.trim();
+        String maKH = intent.getStringExtra("maKH");
+        maKH.trim();
         StringRequest request = new StringRequest(Request.Method.POST, URLgetInfo, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -95,12 +86,11 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
                         for (int i = 0; i<jsonArray.length(); i++){
                             JSONObject object = jsonArray.getJSONObject(i);
                             String tenDN = object.getString("tenDangNhap");
-                            String tenNV = object.getString("tenNV");
+                            String tenKH = object.getString("tenKH");
                             String email = object.getString("email");
                             String soDienThoai = object.getString("soDienThoai");
                             String gioiTinhSo = object.getString("gioiTinh");
                             String matKhau = object.getString("matKhau");
-                            maquyen = object.getString("maquyen");
 
                             account = findViewById(R.id.edditext_account);
                             name = findViewById(R.id.edditext_name);
@@ -115,7 +105,7 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
                             account.setEnabled(false);
 
                             account.setText(tenDN);
-                            name.setText(tenNV);
+                            name.setText(tenKH);
                             emails.setText(email);
                             phone.setText(soDienThoai);
                             if (gioiTinhSo.equals("1")){
@@ -141,7 +131,7 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> pr = new HashMap<String,String>();
-                pr.put("maNV",maNV);
+                pr.put("maKH",maKH);
                 return pr;
             }
         };
@@ -171,8 +161,8 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
         password =findViewById(R.id.edditext_password);
         repassword = findViewById(R.id.edditext_rePassword);
 
-        String tenNV = name.getText().toString();
-        tenNV.trim();
+        String tenKH = name.getText().toString();
+        tenKH.trim();
         String email = emails.getText().toString();
         email.trim();
         String soDienThoai = phone.getText().toString();
@@ -192,7 +182,7 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
             Toast.makeText(getApplicationContext(), "SỐ ĐIỆN THOẠI chỉ nhận 10 hoặc 11 số", Toast.LENGTH_SHORT).show();
         }else if(!Pattern.matches("[0-9]+", soDienThoai)){
             Toast.makeText(getApplicationContext(), "SỐ ĐIỆN THOẠI chỉ nhận 'SỐ'", Toast.LENGTH_SHORT).show();
-        }else if(!verifyFullname(tenNV)){
+        }else if(!verifyFullname(tenKH)){
             Toast.makeText(getApplicationContext(), "TÊN không nhận KÝ TỰ ĐẶC BIỆT", Toast.LENGTH_SHORT).show();
         }else if(!verifyEmail(email)){
             Toast.makeText(getApplicationContext(), "EMAIL Không Hợp Lệ", Toast.LENGTH_SHORT).show();
@@ -206,8 +196,8 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
             Toast.makeText(getApplicationContext(), "Mật khẩu không được rỗng", Toast.LENGTH_SHORT).show();
         }else{
             Intent intent = getIntent();
-            String maNV = intent.getStringExtra("maNV");
-            maNV.trim();
+            String maKH = intent.getStringExtra("maKH");
+            maKH.trim();
             StringRequest request = new StringRequest(Request.Method.POST, URLupdate, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -228,8 +218,8 @@ public class updateInfomation_Activity extends AppCompatActivity implements View
 
 
                     String matKhau = password.getText().toString();
-                    pr.put("maNV",maNV);
-                    pr.put("tenNV",tenNV);
+                    pr.put("maKH",maKH);
+                    pr.put("tenKH",tenKH);
                     pr.put("email",email);
                     pr.put("soDienThoai",soDienThoai);
                     pr.put("gioiTinh",gioiTinhSo);

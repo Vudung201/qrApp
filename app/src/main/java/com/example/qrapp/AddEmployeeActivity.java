@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 public class AddEmployeeActivity extends AppCompatActivity {
-    EditText account,name,emails,phone,gender,password, repassword, manv, maquyen;
+    EditText account,name,emails,phone,gender,password, repassword;
     Button back,save;
     private static final String FULLNAME_PATTERN = "^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" +
             "ẸẺẼỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềếểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" +
@@ -52,6 +52,8 @@ public class AddEmployeeActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(AddEmployeeActivity.this, login_Activity.class);
+                startActivity(intent);
                 finish();
             }
         });
@@ -76,13 +78,9 @@ public class AddEmployeeActivity extends AppCompatActivity {
         }
         String matKhau = password.getText().toString();
         String reMatKhau = repassword.getText().toString();
-        String maq = maquyen.getText().toString();
         matKhau.trim();
         reMatKhau.trim();
-        String ma = manv.getText().toString();
-        if(!ma.startsWith("NV")){
-            Toast.makeText(getApplicationContext(), "Mã nhân viên phải Bắt Đầu bằng 'NV'", Toast.LENGTH_SHORT).show();
-        }else if (soDienThoai.length() < 10) {
+         if (soDienThoai.length() < 10) {
             Toast.makeText(getApplicationContext(), "SỐ ĐIỆN THOẠI chỉ nhận 10 hoặc 11 số", Toast.LENGTH_SHORT).show();
         }else if(!Pattern.matches("[0-9]+", soDienThoai)){
             Toast.makeText(getApplicationContext(), "SỐ ĐIỆN THOẠI chỉ nhận 'SỐ'", Toast.LENGTH_SHORT).show();
@@ -98,8 +96,6 @@ public class AddEmployeeActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Mật khẩu không được có Khoảng trắng", Toast.LENGTH_SHORT).show();
         }else if(matKhau.equals("")){
             Toast.makeText(getApplicationContext(), "Mật khẩu không được rỗng", Toast.LENGTH_SHORT).show();
-        }else if(!maq.equals("1") && !maq.equals("0")){
-            Toast.makeText(getApplicationContext(), "Mã quyền chỉ nhận 1 hoặc 0", Toast.LENGTH_SHORT).show();
         }else {
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -107,9 +103,9 @@ public class AddEmployeeActivity extends AppCompatActivity {
                 public void onResponse(String response) {
                     if (response.trim().equals("success")) {
                         Toast.makeText(AddEmployeeActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(AddEmployeeActivity.this, EmployeeManagerActivity.class));
+                        startActivity(new Intent(AddEmployeeActivity.this, login_Activity.class));
                     } else {
-                        Toast.makeText(AddEmployeeActivity.this, "Trùng Mã", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddEmployeeActivity.this, "Lỗi Đăng Ký", Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -127,7 +123,6 @@ public class AddEmployeeActivity extends AppCompatActivity {
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> map = new HashMap<>();
                     String gioiTinh = "";
-                    map.put("maNV", manv.getText().toString().trim());
                     map.put("hoTen", name.getText().toString().trim());
                     if (gender.getText().toString().trim().equals("Nam"))
                         map.put("gioiTinh", "1");
@@ -137,7 +132,6 @@ public class AddEmployeeActivity extends AppCompatActivity {
                     map.put("tenDN", account.getText().toString().trim());
                     map.put("mK", password.getText().toString().trim());
                     map.put("soDT", phone.getText().toString().trim());
-                    map.put("maQuyen", maquyen.getText().toString().trim());
 
 
                     return map;
@@ -160,7 +154,6 @@ public class AddEmployeeActivity extends AppCompatActivity {
         return password.matches(PASSWORD_PATTERN);
     }
     private void AnhXa(){
-        manv = findViewById(R.id.edditext_manv);
         account = findViewById(R.id.edditext_account);
         name = findViewById(R.id.edditext_name);
         emails = findViewById(R.id.edditext_email);
@@ -168,7 +161,6 @@ public class AddEmployeeActivity extends AppCompatActivity {
         gender = findViewById(R.id.edditext_gender);
         password =findViewById(R.id.edditext_password);
         repassword = findViewById(R.id.edditext_rePassword);
-        maquyen = findViewById(R.id.edditext_maquyen);
         back = findViewById(R.id.button_back);
         save = findViewById(R.id.button_saveInfo);
     }

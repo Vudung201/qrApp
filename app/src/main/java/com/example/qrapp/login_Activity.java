@@ -10,6 +10,7 @@
     import android.view.WindowManager;
     import android.widget.Button;
     import android.widget.EditText;
+    import android.widget.TextView;
     import android.widget.Toast;
 
     import com.android.volley.AuthFailureError;
@@ -36,6 +37,7 @@
     public class login_Activity extends AppCompatActivity {
         EditText account, password;
         String tenDangNhap, matKhau;
+        TextView register;
         String URL = "http://192.168.0.103/loginQRcode/login.php";
 
         @Override
@@ -49,6 +51,15 @@
             tenDangNhap = matKhau = "";
             account = findViewById(R.id.edditext_account);
             password = findViewById(R.id.edditext_password);
+            register = findViewById(R.id.register);
+            register.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(login_Activity.this, AddEmployeeActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
 
         }
 
@@ -59,26 +70,22 @@
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        String maNV,res;
-                        maNV = "";
+                        String maKH,res;
+                        maKH = "";
                         if (!response.equals("failed")){
-                            res = response.substring(0,8);
-                            maNV = response.substring(9);
+                            res = response.substring(0,7);
+                            maKH = response.substring(8);
+                            System.out.println(res+" .. "+maKH);
                         }else{
                             res = "failed";
                         }
                         res.trim();
-                        if (res.equals("success1")) {
-                            Intent intent = new Intent(login_Activity.this, homePage.class);
-                            intent.putExtra("maNV",maNV);
-                            startActivity(intent);
-                            finish();
-                        }else if (res.equals("success0")){
+                        if (res.equals("success")) {
                             Intent intent = new Intent(login_Activity.this, homepage_Employee.class);
-                            intent.putExtra("maNV",maNV);
+                            intent.putExtra("maKH",maKH);
                             startActivity(intent);
                             finish();
-                        } else if (res.equals("failed")) {
+                        }else if (res.equals("failed")) {
                             Toast.makeText(login_Activity.this, "Tài Khoản Hoặc Mật Khẩu Không Chính Xác", Toast.LENGTH_SHORT).show();
                         }
                     }
