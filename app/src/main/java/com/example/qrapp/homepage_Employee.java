@@ -108,7 +108,6 @@ public class homepage_Employee extends AppCompatActivity implements View.OnClick
                 final IntentResult result = result1;
                 response.trim();
                 String res = response.substring(1, 7);
-                System.out.println();
                 if (res.compareToIgnoreCase("failed") != 0) {
                     tongTien = Double.parseDouble(response);
                     if (result != null) {

@@ -37,9 +37,14 @@ public class HistoryEmployee_checkout_Adapter extends RecyclerView.Adapter<Histo
         com.example.qrapp.History history = historyList.get(position);
         if (history == null)
             return;
-        String content ="Đã ra lúc: ";
-        holder.tvName.setText(history.getName());
-        holder.tvContent.setText(content+ history.getTime() + " " + history.getDate());
+        String name ="Nhân viên tiếp xúc: ";
+        String date ="Ngày thanh toán: ";
+        String time ="Thời gian: ";
+        String price ="Tổng tiền: ";
+        holder.tvName.setText(name+history.getName());
+        holder.tvDate.setText(date+history.getDate());
+        holder.tvTime.setText(time+history.getTime());
+        holder.tvPrice.setText(price+String.format("%,.0f", history.getPrice()) + " VNĐ");
     }
 
     @Override
@@ -50,12 +55,13 @@ public class HistoryEmployee_checkout_Adapter extends RecyclerView.Adapter<Histo
     }
 
     public class UserViewHolder extends RecyclerView.ViewHolder{
-        private TextView  tvName;
-        private TextView tvContent;
+        private TextView  tvName,tvDate,tvTime,tvPrice;
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName  = itemView.findViewById(R.id.tvName);
-            tvContent = itemView.findViewById(R.id.tv_content);
+            tvDate = itemView.findViewById(R.id.tv_date);
+            tvTime = itemView.findViewById(R.id.tv_time);
+            tvPrice = itemView.findViewById(R.id.tv_price);
         }
     }
 }

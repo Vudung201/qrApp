@@ -37,7 +37,7 @@
             android:layout_below="@+id/nameGroup"
             android:layout_marginLeft="45dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Nhân viên"
+            android:text="Khách hàng"
             android:textSize="20dp" />
 
     </RelativeLayout>

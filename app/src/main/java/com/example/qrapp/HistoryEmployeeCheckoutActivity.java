@@ -25,7 +25,7 @@ import java.util.List;
 
 public class HistoryEmployeeCheckoutActivity extends AppCompatActivity {
     private RecyclerView rcvHistory;
-    private HistoryAdapter historyAdapter;
+    private HistoryEmployee_checkout_Adapter historyAdapter;
     List<History> arrayList;
     String url ="http://192.168.0.103/loginQRcode/getdata_history_checkOut.php";
 
@@ -38,19 +38,18 @@ public class HistoryEmployeeCheckoutActivity extends AppCompatActivity {
 
         rcvHistory = findViewById(R.id.rcv_history);
 
-        historyAdapter = new HistoryAdapter(this);
+        historyAdapter = new HistoryEmployee_checkout_Adapter(this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         rcvHistory.setLayoutManager(linearLayoutManager);
         arrayList = new ArrayList<>();
         historyAdapter.setData(arrayList);
         rcvHistory.setAdapter(historyAdapter);
-
         Intent intent = getIntent();
-        String maNV = String.valueOf(intent.getStringExtra("maNV"));
-        GetData(url, maNV);
+        String maKH = String.valueOf(intent.getStringExtra("maKH"));
+        GetData(url, maKH);
     }
-    private void GetData(String url, String maNV) {
+    private void GetData(String url, String maKH) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -58,13 +57,16 @@ public class HistoryEmployeeCheckoutActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject object = response.getJSONObject(i);
-                        if(maNV.trim().equals(object.getString("MaNV"))){
+                        int maKhach = object.getInt("KhachHang");
+                        String mk = String.valueOf(maKhach);
+                        if(maKH.trim().equals(mk)){
                         arrayList.add(new History(
                                 object.getInt("Id"),
-                                object.getString("MaNV"),
-                                object.getString("TenNV"),
-                                object.getString("NgayRa"),
-                                object.getString("GioRa")
+                                object.getInt("KhachHang"),
+                                object.getString("fullname"),
+                                object.getString("NgayTT"),
+                                object.getString("ThoiGian"),
+                                object.getDouble("tongTien")
 
                         ));}
                     } catch (JSONException e) {

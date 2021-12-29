@@ -24,15 +24,6 @@
             android:name=".HistoryEmployeeCheckoutActivity"
             android:exported="false" />
         <activity
-            android:name=".HistoryEmployeeCheckinActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HistoryCheckoutActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HistoryCheckinActivity"
-            android:exported="false" />
-        <activity
             android:name=".UpdateEmployeeActivity"
             android:exported="false" />
         <activity
@@ -52,9 +43,6 @@
             android:exported="true" />
         <activity
             android:name=".homepage_Employee"
-            android:exported="true" />
-        <activity
-            android:name=".homePage"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

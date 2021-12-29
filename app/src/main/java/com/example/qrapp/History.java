@@ -2,18 +2,19 @@ package com.example.qrapp;
 
 public class History {
     private int id;
-    private String manv;
+    private int makh;
     private String name;
     private String date;
     private String time;
-    private String tv_content;
+    private Double price;
 
-    public History(int id, String manv, String name, String date, String time) {
+    public History(int id, int makh, String name, String date, String time, Double price) {
         this.id = id;
-        this.manv = manv;
+        this.makh = makh;
         this.name = name;
         this.date = date;
         this.time = time;
+        this.price = price;
     }
 
     public int getId() {
@@ -24,12 +25,12 @@ public class History {
         this.id = id;
     }
 
-    public String getManv() {
-        return manv;
+    public int getMakh() {
+        return makh;
     }
 
-    public void setManv(String manv) {
-        this.manv = manv;
+    public void setMakh(int makh) {
+        this.makh = makh;
     }
 
     public String getName() {
@@ -54,6 +55,14 @@ public class History {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }
 
